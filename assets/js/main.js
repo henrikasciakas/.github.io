@@ -202,3 +202,73 @@
   });
 
 })();
+
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Nuskaitomi formos duomenys
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+
+  const question1 = parseInt(document.getElementById("question1").value);
+  const question2 = parseInt(document.getElementById("question2").value);
+  const question3 = parseInt(document.getElementById("question3").value);
+  const question4 = parseInt(document.getElementById("question4").value);
+  const question5 = parseInt(document.getElementById("question5").value);
+
+  // Patikrinimas
+  if (!validateEmail(email)) {
+      alert("Neteisingas el. pašto adresas");
+      return;
+  }
+
+  if (!validatePhone(phone)) {
+      alert("Neteisingas telefono numeris");
+      return;
+  }
+
+  // Objektas
+  const visitor = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      ratings: [question1, question2, question3, question4, question5]
+  };
+
+  // Vidurkio apskaičiavimas
+  const averageRating = (
+      visitor.ratings.reduce((sum, rating) => sum + rating, 0) / visitor.ratings.length
+  ).toFixed(1);
+
+  // Rezultatų formatavimas
+  const averageClass =
+      averageRating <= 3.4 ? "red" : averageRating <= 7.1 ? "orange" : "green";
+
+  const resultsHTML = `
+      <p><strong>Vardas:</strong> ${visitor.firstName}</p>
+      <p><strong>Pavardė:</strong> ${visitor.lastName}</p>
+      <p><strong>El. paštas:</strong> ${visitor.email}</p>
+      <p><strong>Telefono numeris:</strong> ${visitor.phone}</p>
+      <p><strong>Adresas:</strong> ${visitor.address}</p>
+      <p><strong>Vidutinis įvertinimas:</strong> <span class="${averageClass}">${averageRating}</span></p>
+  `;
+
+  document.getElementById("results").innerHTML = resultsHTML;
+  console.log(visitor);
+});
+
+// Pagalbinės funkcijos
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+function validatePhone(phone) {
+  const re = /^\+?[0-9]{9,15}$/;
+  return re.test(phone);
+}
