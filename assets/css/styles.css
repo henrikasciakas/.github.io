@@ -1,0 +1,56 @@
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', sans-serif !important;
+    font-size: 2rem !important;
+    color: #bbb7b7 !important;
+  }
+
+  p {
+    font-family: 'Verdana', sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #9b9696 !important;
+  }
+  
+
+  a {
+    color: #ff5733 !important;
+  }
+  
+  
+  button, .btn {
+    background-color: #ff5733 !important;
+  }
+  
+:root {
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --light-link: #007bff;
+    --dark-bg: #121212;
+    --dark-text: #ffffff;
+    --dark-link: #1e90ff;
+}
+
+
+body {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+a {
+    color: var(--light-link);
+}
+
+a:hover {
+    color: var(--dark-link);
+}
+
+
+body {
+    background-color: white;
+    color: black;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}

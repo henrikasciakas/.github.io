@@ -74,18 +74,32 @@ a {
 
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
+  text-decoration: underline;
+}
+a:active {
+  color: #bd0d07; 
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif !important;
+  font-size: 2rem !important;
+  color: #bbb7b7 !important;
 }
+
+p {
+  font-family: 'Verdana', sans-serif !important;
+  font-size: 1.1rem !important;
+  color: #9b9696 !important;
+}
+
+a {
+  color: #ff5733 !important;
+}
+
+button, .btn {
+  background-color: #ff5733 !important;
+}
+
 
 /* PHP Email Form Messages
 ------------------------------*/
@@ -679,6 +693,25 @@ section,
   font-weight: 700;
   text-transform: uppercase;
   font-family: var(--heading-font);
+}
+/* divs */
+section {
+  margin: 10px;
+  padding: 15px;
+  border: 2px solid #ddd;
+}
+
+article {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 5px solid #007bff;
+}
+
+div.container {
+  padding: 20px;
+  margin: 30px auto;
+  border: 3px solid #333;
+  width: 90%;
 }
 
 /*--------------------------------------------------------------
